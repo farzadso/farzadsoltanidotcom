@@ -1,0 +1,24 @@
+@tailwind base;
+
+/* Write your own custom base styles here */
+
+.post-body p > code {
+    background-color: rgba(242, 242, 242, 1);
+    padding: 2px 4px;
+}
+
+.post-body p > a {
+    text-decoration: underline;
+}
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Write you own custom component styles here */
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
