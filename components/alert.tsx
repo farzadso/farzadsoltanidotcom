@@ -5,7 +5,7 @@ type Props = {
   alert?: boolean
 }
 
-const Alert = ({ alert }: Props) => {
+const Alert = ({ alert }: Props): JSX.Element => {
   return (
     <div
       className={cn('border-b', {

@@ -11,7 +11,7 @@ type Props = {
   author: Author
 }
 
-const PostHeader = ({ title, coverImage, date, author }: Props) => {
+const PostHeader = ({ title, coverImage, date, author }: Props): JSX.Element => {
   return (
     <>
       <PostTitle>{title}</PostTitle>

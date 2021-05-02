@@ -19,7 +19,7 @@ type Props = {
   alert?: boolean
 }
 
-const Post = ({ post, morePosts, alert }: Props) => {
+const Post = ({ post, alert }: Props): JSX.Element => {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -35,7 +35,7 @@ const Post = ({ post, morePosts, alert }: Props) => {
             <article className="mb-32">
               <Head>
                 <title>
-                  {post.title} | Farzad's Tech Blog
+                  {post.title} | Farzad&#39;s Tech Blog
                 </title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
@@ -62,7 +62,24 @@ type Params = {
   }
 }
 
-export async function getStaticProps({ params }: Params) {
+type StaticProps = {
+  props: {
+    post: {
+      content: string
+    }
+  }
+}
+
+type StaticPaths = {
+  paths: {
+    params: {
+      slug: string
+    }
+  }[],
+  fallback: boolean,
+}
+
+export async function getStaticProps({ params }: Params): Promise<StaticProps> {
   const post = getPostBySlug(params.slug, [
     'title',
     'date',
@@ -84,7 +101,7 @@ export async function getStaticProps({ params }: Params) {
   }
 }
 
-export async function getStaticPaths() {
+export function getStaticPaths(): StaticPaths {
   const posts = getAllPosts(['slug'])
 
   return {

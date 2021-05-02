@@ -20,7 +20,7 @@ const PostPreview = ({
   excerpt,
   author,
   slug,
-}: Props) => {
+}: Props): JSX.Element => {
   return (
     <div>
       <div className="mb-5">

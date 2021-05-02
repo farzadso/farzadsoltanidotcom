@@ -7,7 +7,7 @@ type Props = {
   slug?: string
 }
 
-const CoverImage = ({ title, src, slug }: Props) => {
+const CoverImage = ({ title, src, slug }: Props): JSX.Element => {
   const image = (
     <img
       src={src}
