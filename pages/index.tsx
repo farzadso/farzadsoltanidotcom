@@ -6,19 +6,20 @@ import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../types/post'
+import { Items } from '../lib/api'
 
 type Props = {
   allPosts: Post[]
 }
 
-const Index = ({ allPosts }: Props) => {
+const Index = ({ allPosts }: Props): JSX.Element => {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
     <>
       <Layout>
         <Head>
-          <title>Farzad's Tech Blog</title>
+          <title>Farzad&#39;s Tech Blog</title>
         </Head>
         <Container>
           <Intro />
@@ -41,7 +42,13 @@ const Index = ({ allPosts }: Props) => {
 
 export default Index
 
-export const getStaticProps = async () => {
+type StaticProps = {
+  props: {
+    allPosts: Items[]
+  }
+}
+
+export const getStaticProps = async (): Promise<StaticProps> => {
   const allPosts = getAllPosts([
     'title',
     'date',
